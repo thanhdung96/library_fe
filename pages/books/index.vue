@@ -110,6 +110,7 @@ export default {
       { text: 'author', value: 'author' },
       { text: 'publishDate', value: 'publishDate' },
       { text: 'reviews', value: 'reviews' },
+      { text: 'averageRating', value: 'averageRating' },
       { text: 'created', value: 'created' },
       { text: 'modified', value: 'modified' },
       {

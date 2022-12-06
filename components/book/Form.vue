@@ -78,7 +78,16 @@
           />
         </v-col>
 
-        <v-col cols="12"></v-col>
+        <v-col cols="12" sm="6" md="6">
+          <v-text-field
+            v-model.number="item.averageRating"
+            :error-messages="averageRatingErrors"
+            label="averageRating"
+            step="0.1"
+            @input="$v.item.averageRating.$touch()"
+            @blur="$v.item.averageRating.$touch()"
+          />
+        </v-col>
       </v-row>
     </v-container>
   </v-form>
@@ -124,6 +133,7 @@ export default {
     author: null,
     publishDate: null,
     reviews: null,
+    averageRating: null,
   }),
   computed: {
     // eslint-disable-next-line
@@ -197,6 +207,16 @@ export default {
 
       return errors
     },
+    averageRatingErrors() {
+      const errors = []
+
+      if (!this.$v.item.averageRating.$dirty) return errors
+
+      has(this.violations, 'averageRating') &&
+        errors.push(this.violations.averageRating)
+
+      return errors
+    },
 
     violations() {
       return this.errors || {}
@@ -214,6 +234,7 @@ export default {
         date,
       },
       reviews: {},
+      averageRating: {},
     },
   },
 }

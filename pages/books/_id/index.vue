@@ -62,6 +62,12 @@
             </td>
           </tr>
           <tr>
+            <th scope="row">averageRating</th>
+            <td>
+              {{ item['averageRating'] }}
+            </td>
+          </tr>
+          <tr>
             <th scope="row">created</th>
             <td>
               {{ item['created'] }}
